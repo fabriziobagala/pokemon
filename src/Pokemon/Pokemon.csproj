@@ -9,4 +9,7 @@
     <Folder Include="Controllers\" />
     <Folder Include="Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
+  </ItemGroup>
 </Project>
