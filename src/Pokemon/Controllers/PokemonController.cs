@@ -20,7 +20,7 @@ namespace Pokemon.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult Get()
         {
-            throw new NotImplementedException();
+            return Ok("All is OK");
         }
 
         // GET pokemon/{name}
