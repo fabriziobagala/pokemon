@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Pokemon.Services;
 using Serilog;
 
 namespace Pokemon
@@ -20,6 +21,8 @@ namespace Pokemon
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddHttpClient<IPokeApiService, PokeApiService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
