@@ -35,7 +35,9 @@ Open the terminal and type the following command:
 
 Example:
 
-![](resources/httpie.gif)
+<p align="center">
+	<img src="resources/httpie.gif" alt="HTTPie" width="600" height="400" />
+</p>
 
 ## API Design
 
@@ -75,7 +77,9 @@ Run the following command:
 
 Example:
 
-![](resources/newman.gif)
+<p align="center">
+	<img src="resources/newman.gif" alt="Newman" width="600" height="400" />
+</p>
 
 ## License
 
