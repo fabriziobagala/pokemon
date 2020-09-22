@@ -68,15 +68,9 @@ Example:
 
 ## Automated Testing
 
-Open the solution with Visual Studio.
+Once the application is running, you can launch Postman tests from the command line using Newman.
 <br />
-Launch the application and wait for the default browser to open with the following URL:
-
-    http://localhost:5000/pokemon
-
-If you see "All is OK", the application has started correctly; otherwise, consult the log file inside the Logs folder to check the issue.
-
-Open the terminal and move to the directory containing the Postman collection.
+Move to the directory containing the Postman collection.
 
     cd <repository_path>/src/Postman
 
