@@ -3,6 +3,7 @@ using System.Net.Mime;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Pokemon.Constants;
 using Pokemon.Services;
 
 namespace Pokemon.Controllers
@@ -26,7 +27,7 @@ namespace Pokemon.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult Get()
         {
-            return Ok("All is OK");
+            return Ok(ControllerMessage.ALL_OK);
         }
 
         // GET pokemon/{name}
@@ -42,7 +43,7 @@ namespace Pokemon.Controllers
 
             if (string.IsNullOrWhiteSpace(description))
             {
-                return NotFound(new { name, message = "Pokemon not found" });
+                return NotFound(new { name, message = ControllerMessage.POKEMON_NOT_FOUND });
             }
 
             // Replaces the control characters with whitespace.
@@ -55,7 +56,7 @@ namespace Pokemon.Controllers
             {
                 return StatusCode(
                     StatusCodes.Status503ServiceUnavailable,
-                    new { name, description, message = "Funs translations API unavailable" });
+                    new { name, description, message = ControllerMessage.FUN_TRANSLATIONS_UNAVAILABLE });
             }
 
             return Ok(new { name, translatedDescription });

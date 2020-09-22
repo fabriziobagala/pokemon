@@ -5,6 +5,7 @@ using System.Web;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Pokemon.Constants;
 using Pokemon.Models.FunTranslationsApi;
 
 namespace Pokemon.Services
@@ -28,7 +29,7 @@ namespace Pokemon.Services
             {
                 // Builds the request URI.
                 var endpoint = _configuration.GetValue<string>("FunTranslationsApi:Endpoint") ?? string.Empty;
-                var uriBuilder = new UriBuilder("https", endpoint);
+                var uriBuilder = new UriBuilder(SchemeName.HTTPS, endpoint);
 
                 // Adds the query in the request URI.
                 var query = HttpUtility.ParseQueryString(uriBuilder.Query);

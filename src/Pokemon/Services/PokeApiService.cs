@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Pokemon.Constants;
 using Pokemon.Models;
 
 namespace Pokemon.Services
@@ -29,7 +30,7 @@ namespace Pokemon.Services
                 // Builds the request URI.
                 var endpoint = _configuration.GetValue<string>("PokeApi:Endpoint") ?? string.Empty;
                 var hostName = $"{endpoint}/{name}/";
-                var uriBuilder = new UriBuilder("https", hostName);
+                var uriBuilder = new UriBuilder(SchemeName.HTTPS, hostName);
                 var requestUri = uriBuilder.ToString();
 
                 // Gets asynchronously the JSON response.
