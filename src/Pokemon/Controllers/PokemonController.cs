@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Pokemon.Constants;
+using Pokemon.Models.PokemonApi;
 using Pokemon.Services;
 
 namespace Pokemon.Controllers
@@ -43,7 +44,7 @@ namespace Pokemon.Controllers
 
             if (string.IsNullOrWhiteSpace(description))
             {
-                return NotFound(new { name, message = ControllerMessage.POKEMON_NOT_FOUND });
+                return NotFound(new ApiErrorResponse(name, string.Empty, ControllerMessage.POKEMON_NOT_FOUND));
             }
 
             // Replaces the control characters with whitespace.
@@ -56,10 +57,10 @@ namespace Pokemon.Controllers
             {
                 return StatusCode(
                     StatusCodes.Status503ServiceUnavailable,
-                    new { name, description, message = ControllerMessage.FUN_TRANSLATIONS_UNAVAILABLE });
+                    new ApiErrorResponse(name, description, ControllerMessage.FUN_TRANSLATIONS_UNAVAILABLE));
             }
 
-            return Ok(new { name, translatedDescription });
+            return Ok(new ApiResponse(name, translatedDescription));
         }
     }
 }
