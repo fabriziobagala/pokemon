@@ -23,6 +23,7 @@ namespace Pokemon
             services.AddControllers();
 
             services.AddHttpClient<IPokeApiService, PokeApiService>();
+            services.AddHttpClient<IFunTranslationsApiService, FunTranslationsApiService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
