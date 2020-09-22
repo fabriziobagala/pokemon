@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "a4a2a916-96c4-4358-a7d0-8b413a90fa1b",
+		"name": "Pokemon_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pokemon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "39a93a24-723f-447b-9994-5023aad1e838",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type header is present\", () => {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type header is text/plain; charset=utf-8\", () => {",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain; charset=utf-8');",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", () => {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Body is string\", () => {",
+							"    pm.response.to.have.body(\"All is OK\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/pokemon",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"pokemon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pokemon name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8b2f4664-1b89-4dd1-b5c5-6ee50276a14c",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type header is present\", () => {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type header is application/json; charset=utf-8\", () => {",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+							"});",
+							"",
+							"const jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Response has all properties\", () => {",
+							"    pm.expect(jsonData).to.have.property(\"name\");",
+							"    pm.expect(jsonData).to.have.property(\"description\");",
+							"});",
+							"",
+							"pm.test(\"Pokemon name is string\", () => {",
+							"    pm.expect(jsonData.name).to.be.a(\"string\");",
+							"    pm.expect(jsonData.name).to.eql(\"charizard\");",
+							"});",
+							"",
+							"pm.test(\"Pokemon description is string\", () => {",
+							"    pm.expect(jsonData.description).to.be.a(\"string\");",
+							"    pm.expect(jsonData.description).to.eql(\"Charizard flies 'round the sky in search of powerful opponents. 't breathes fire of such most wondrous heat yond 't melts aught. However,  't nev'r turns its fiery breath on any opponent weaker than itself.\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/pokemon/charizard",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"pokemon",
+						"charizard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pokemon non-existing name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "29dcd150-46a1-4651-b4c0-24148d224195",
+						"exec": [
+							"pm.test(\"Status code is 404\", () => {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Content-Type header is present\", () => {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type header is application/json; charset=utf-8\", () => {",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+							"});",
+							"",
+							"const jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Response has all properties\", () => {",
+							"    pm.expect(jsonData).to.have.property(\"name\");",
+							"    pm.expect(jsonData).to.have.property(\"description\");",
+							"    pm.expect(jsonData).to.have.property(\"message\");",
+							"});",
+							"",
+							"pm.test(\"Pokemon name is string\", () => {",
+							"    pm.expect(jsonData.name).to.be.a(\"string\");",
+							"    pm.expect(jsonData.name).to.eql(\"foo\");",
+							"});",
+							"",
+							"pm.test(\"Pokemon description is empty string\", () => {",
+							"    pm.expect(jsonData.description).to.be.a(\"string\");",
+							"    pm.expect(jsonData.description).to.be.empty;",
+							"});",
+							"",
+							"pm.test(\"Pokemon message is string\", () => {",
+							"    pm.expect(jsonData.message).to.be.a(\"string\");",
+							"    pm.expect(jsonData.message).to.eql(\"Pokemon not found\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/pokemon/foo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"pokemon",
+						"foo"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
