@@ -8,6 +8,7 @@ Pokemon is a REST API that given the name of a Pokemon returns its description i
 
 On your machine must be installed:
 
+- [Visual Studio 2019](https://visualstudio.microsoft.com/) is a full-featured IDE to code, debug, test, and deploy to any platform.
 - [.NET Core 3.1.402](https://dotnet.microsoft.com/) is a cross-platform version of .NET for building websites, services, and console apps.
 - [Postman 7.32](https://www.postman.com/) is a collaboration platform for API development.
 - [Node.js 14.11](https://nodejs.org/en/) is a JavaScript runtime built on Chrome's V8 JavaScript engine.
@@ -23,7 +24,9 @@ The solution uses the following [Nuget](https://www.nuget.org/) packages:
 
 ## Usage
 
-Open the IDE and start the solution. The default browser will open with the following URL:
+Open the solution with Visual Studio.
+<br />
+Launch the application and wait for the default browser to open with the following URL:
 
     http://localhost:5000/pokemon
 
@@ -65,9 +68,15 @@ Example:
 
 ## Automated Testing
 
-Open the IDE and start the solution.
+Open the solution with Visual Studio.
 <br />
-Move to the directory containing the Postman collection.
+Launch the application and wait for the default browser to open with the following URL:
+
+    http://localhost:5000/pokemon
+
+If you see "All is OK", the application has started correctly; otherwise, consult the log file inside the Logs folder to check the issue.
+
+Open the terminal and move to the directory containing the Postman collection.
 
     cd <repository_path>/src/Postman
 
