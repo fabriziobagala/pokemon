@@ -1,6 +1,6 @@
 # Pokemon
 
-A REST API that given the name of a Pokemon returns its description in Shakespearean style.
+An ASP.NET Core Web API that given the name of a Pokemon returns its description in Shakespearean style.
 
 ## Prerequisites
 
