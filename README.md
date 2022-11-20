@@ -1,8 +1,6 @@
-<p align="center">
-	<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/320px-International_Pok%C3%A9mon_logo.svg.png" alt="Pokemon logo" />
-</p>
+# Pokemon
 
-Pokemon is a REST API that given the name of a Pokemon returns its description in Shakespearean style.
+A REST API that given the name of a Pokemon returns its description in Shakespearean style.
 
 ## Prerequisites
 
