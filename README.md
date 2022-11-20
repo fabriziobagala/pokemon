@@ -86,4 +86,4 @@ Example:
 
 ## License
 
-Licensed under the [GNU General Public License v3.0](LICENSE) license.
+Licensed under the [MIT](LICENSE) license.
